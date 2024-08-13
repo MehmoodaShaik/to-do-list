@@ -1,8 +1,7 @@
 const inputBox=document.getElementById("input-box");
 const listContainer=document.getElementById("list-container");
-
-function addTask(){
-    if(inputBox.value ===''){
+document.getElementById("myButton").onclick = function(){
+    if(inputBox.value ===""){
         alert("You must write something");
     }
     else{
@@ -14,6 +13,7 @@ function addTask(){
         li.appendChild(span);
     }
     inputBox.value="";
+    saveData();
 }
 listContainer.addEventListener("click",function(e){
     if(e.target.tagName==="LI"){
@@ -21,8 +21,8 @@ listContainer.addEventListener("click",function(e){
     }
     else if(e.target.tagName==="SPAN"){
         e.target.parentElement.remove();
-        saveData();
     }
+    saveData();
 },false);
 
 function saveData(){
